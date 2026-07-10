@@ -1,3 +1,9 @@
+# data 
+*.jsondata/
+*.csv 
+logs/
+.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -156,6 +162,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+amplitude_data/
 
 # Spyder project settings
 .spyderproject
