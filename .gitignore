@@ -3,6 +3,7 @@
 *.csv 
 logs/
 .log
+amplitude_data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
