@@ -39,12 +39,12 @@ params = {
 
 # 5. Define zipped file and folder paths
 zip_filename = f"zipped_{start_time}.zip" #contains 1 big zipped file 
-zip_filepath = os.path.join(main_folder, zip_filename) #thew 1 big zipped file lives in the amplitude_data folder 
+zip_filepath = os.path.join(main_folder, zip_filename) #the 1 big zipped file lives in the amplitude_data folder 
 
 
 # 6. Make API call
 logging.info(f"Requesting full day data from Amplitude for: {yesterday_dt.strftime('%Y-%m-%d')}")
-response = requests.get(base_url, params=params, auth=(api_key, secret_key), stream=True)
+response = requests.get(base_url, params=params, auth=(api_key, secret_key), stream=True) #With stream=True: Python only downloads the HTTP headers initially and holds the connection open. It yields the data as a stream, allowing you to download and write the file in tiny, bite-sized pieces (chunks) directly to your hard drive.
 
 if response.status_code == 200:
     # download the data in 8KB chunks to avoid memory on computer being too full 
