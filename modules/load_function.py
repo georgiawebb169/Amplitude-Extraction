@@ -39,7 +39,7 @@ def load_data_to_s3(aws_access_key, aws_secret_key, bucket_name, data_dir='ampli
 
     # 2. Clean up empty subfolders left behind
     for folder, subfolders, files in os.walk(data_dir, topdown=False):
-        if folder != data_dir and not os.listdir(folder):
+        if not os.listdir(folder):
             os.rmdir(folder)
             logging.info(f"Cleaned up empty local folder: {folder}")
 
