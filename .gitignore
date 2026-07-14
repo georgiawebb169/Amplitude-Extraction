@@ -4,6 +4,7 @@
 logs/
 .log
 amplitude_data/
+*test_upload.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
