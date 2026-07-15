@@ -1,0 +1,29 @@
+name: Amplitude Ingestion
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: Amplitude
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          AMP_API_KEY: ${{secrets.AMP_API_KEY}}
+          AMP_SECRET_KEY: ${{secrets.AMP_SECRET_KEY}}
+          AWS_BUCKET_NAME: ${{secrets.AWS_BUCKET_NAME}}
+        run: python main.py
