@@ -26,4 +26,4 @@ jobs:
           AMP_API_KEY: ${{secrets.AMP_API_KEY}}
           AMP_SECRET_KEY: ${{secrets.AMP_SECRET_KEY}}
           AWS_BUCKET_NAME: ${{secrets.AWS_BUCKET_NAME}}
-        run: python main.py
+        run: python extract_load.py
