@@ -1,25 +1,7 @@
 # Amplitude Data Extraction Pipeline
+This project is a full-stack, automated ETL (Extract, Transform, Load) data pipeline that takes raw website user-behavior events from Amplitude, stores them in AWS S3, automatically loads them into Snowflake, enriches the IP addresses using an external API, and models the data into a Medallion Architecture (Bronze → Silver → Gold) ready for business intelligence and analytics.
 
-A lightweight, automated Python pipeline designed to extract daily event data from the Amplitude Analytics API (EU Residency), handle complex nested decompression, and save clean, uncompressed JSON files locally.
-
-```text
-your_project_folder/
-│
-├── .env                  <-- Your hidden keys
-├── .venv/                <-- Your local environment
-├── script.py             <-- Your Python code
-├── requirements.txt      <-- Your library list
-│
-└── amplitude_data/       <-- Data folder
-    ├── json_20260709T06/  <-- Data from 6:00 AM UTC
-    │   └── 12345_2026-07-09_6#1.json
-    │
-    ├── json_20260709T07/  <-- Data from 7:00 AM UTC
-    │   └── 12345_2026-07-09_7#1.json
-    │
-    └── json_20260709T08/  <-- Data from 8:00 AM UTC
-        └── 12345_2026-07-09_8#1.json
-```
+Every morning at 7am, GitHub Actions runs this script with saved secret AWS/APIkeys. 
 
 Load:
 
